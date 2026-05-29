@@ -310,7 +310,7 @@ GET /api/resume/:username
 ## Deployment
 
 Frontend:
-[[Frontend Deployment URL Here]](https://git-hub-analyser-system.vercel.app/analyze)
+[https://git-hub-analyser-system.vercel.app/analyze](https://git-hub-analyser-system.vercel.app/analyze)
 
 Backend:
 [https://github-profile-analyzer-api-ggym.onrender.com](https://github-analyser-system.onrender.com)
