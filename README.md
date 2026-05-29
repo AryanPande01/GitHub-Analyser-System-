@@ -8,20 +8,49 @@ The platform combines GitHub repository analytics, skill detection, career readi
 
 ## Live Demo
 
-Frontend:
-[https://git-hub-analyser-system.vercel.app/analyze](https://git-hub-analyser-system.vercel.app/analyze)
+Frontend
 
-Backend API:
-[https://github-profile-analyzer-api-ggym.onrender.com](https://github-analyser-system.onrender.com)
+https://git-hub-analyser-system.vercel.app/analyze
 
-GitHub Repository:
-[https://github.com/AryanPande01/github-profile-analyzer-api](https://github.com/AryanPande01/GitHub-Analyser-System-.git)
+Backend API
+
+https://github-analyser-system.onrender.com
+
+GitHub Repository
+
+https://github.com/AryanPande01/GitHub-Analyser-System-
+
+<img width="1470" height="806" alt="image" src="https://github.com/user-attachments/assets/f83578e1-9b99-4cc2-8701-e65c4a74c8c7" />
+<img width="1457" height="809" alt="image" src="https://github.com/user-attachments/assets/f326ef27-f49e-42a4-9c45-d99abffc5f0c" />
+<img width="1470" height="808" alt="image" src="https://github.com/user-attachments/assets/10ad03bb-d9b4-4508-b69c-950fd1cdc9a8" />
+<img width="1470" height="805" alt="image" src="https://github.com/user-attachments/assets/9de4c450-f135-4d65-866c-680d27fa060f" />
+<img width="1470" height="805" alt="image" src="https://github.com/user-attachments/assets/5378b185-5234-4840-9530-718c1b431129" />
+
 
 ---
 
-## Features
+## Overview
 
-### GitHub Profile Analysis
+GitHub Career Analyzer helps developers, recruiters, and hiring managers evaluate technical profiles using GitHub activity and repository data.
+
+The platform analyzes repositories, identifies technologies, evaluates project quality, generates career readiness scores, produces AI-powered recommendations, and creates personalized learning roadmaps.
+
+---
+
+## Platform Capabilities
+
+* Analyze any public GitHub profile
+* Evaluate repository quality and developer activity
+* Detect technologies and development domains
+* Generate AI-powered career insights
+* Compare developers side-by-side
+* Rank candidates for recruiters
+* Create personalized learning roadmaps
+* Provide AI career coaching through chat
+
+---
+
+## GitHub Profile Analysis
 
 Analyze any public GitHub profile and extract:
 
@@ -32,16 +61,15 @@ Analyze any public GitHub profile and extract:
 * Account age
 * Repository activity
 * Profile metadata
+* Open-source impact metrics
 
 ---
 
-### Skill Detection Engine
+## Technology Detection Engine
 
-Automatically detects technologies and skills from repositories.
+The analyzer automatically identifies technologies and frameworks used across GitHub repositories.
 
-Supported categories:
-
-Frontend
+### Frontend Technologies
 
 * HTML
 * CSS
@@ -52,7 +80,7 @@ Frontend
 * Vue
 * Angular
 
-Backend
+### Backend Technologies
 
 * Node.js
 * Express
@@ -61,14 +89,14 @@ Backend
 * Flask
 * FastAPI
 
-Databases
+### Databases
 
 * MySQL
 * PostgreSQL
 * MongoDB
 * Redis
 
-Cloud & DevOps
+### Cloud & DevOps
 
 * Docker
 * Kubernetes
@@ -76,9 +104,9 @@ Cloud & DevOps
 * GitHub Actions
 * AWS
 * Azure
-* GCP
+* Google Cloud Platform
 
-AI / Machine Learning
+### AI / Machine Learning
 
 * OpenAI
 * LangChain
@@ -86,11 +114,13 @@ AI / Machine Learning
 * PyTorch
 * Scikit-Learn
 
+Note: These technologies are detected from analyzed GitHub repositories and are not necessarily used to build this platform.
+
 ---
 
 ## Repository Intelligence
 
-For each developer profile the platform generates:
+For every analyzed profile, the platform generates:
 
 * Repository Quality Score
 * Activity Score
@@ -98,11 +128,11 @@ For each developer profile the platform generates:
 * Open Source Impact Score
 * Project Complexity Score
 
-Repository classification:
+Repository classification includes:
 
 * Web Development
 * Backend Systems
-* AI / ML
+* AI / Machine Learning
 * DevOps
 * Data Science
 * Mobile Development
@@ -112,46 +142,41 @@ Repository classification:
 
 ## Career Readiness Scoring
 
-Generates readiness scores across multiple domains.
+The platform evaluates readiness across multiple engineering domains:
 
-* Frontend Readiness
-* Backend Readiness
-* Database Readiness
-* DevOps Readiness
-* System Design Readiness
-* Problem Solving Readiness
+* Frontend Development
+* Backend Development
+* Database Engineering
+* DevOps & Cloud
+* System Design
+* Problem Solving
 
-Each score includes AI-generated explanations and recommendations.
+Each score includes AI-generated explanations and actionable recommendations.
 
 ---
 
 ## AI Career Insights
 
-Powered by Gemini AI.
+Powered by Google Gemini.
 
 Generates:
 
 * Strengths
 * Weaknesses
-* Skill gaps
-* Career recommendations
-* Portfolio suggestions
-* Resume suggestions
-* Interview preparation advice
+* Skill Gaps
+* Career Recommendations
+* Portfolio Suggestions
+* Resume Suggestions
+* Interview Preparation Guidance
 
 ---
 
-## Learning Roadmap Generator
+## Personalized Learning Roadmaps
 
-Creates personalized:
-
-* 1 Month Roadmap
-* 3 Month Roadmap
-* 6 Month Roadmap
-
-Based on:
+Creates customized learning plans based on:
 
 * Current skills
+* Technology stack
 * Career goals
 * Skill gaps
 * Readiness scores
@@ -163,8 +188,14 @@ Supported career paths:
 * Frontend Developer
 * Full Stack Developer
 * AI Engineer
-* ML Engineer
+* Machine Learning Engineer
 * DevOps Engineer
+
+Roadmap durations:
+
+* 1 Month
+* 3 Months
+* 6 Months
 
 ---
 
@@ -172,33 +203,33 @@ Supported career paths:
 
 Recruiter-focused analytics include:
 
-* Candidate ranking
-* Readiness scoring
-* Repository quality evaluation
-* Technical profile summaries
-* Hiring recommendations
-* Open-source influence metrics
+* Candidate Ranking
+* Readiness Scoring
+* Repository Quality Evaluation
+* Technical Profile Summaries
+* Hiring Recommendations
+* Open Source Influence Metrics
 
 ---
 
 ## Developer Comparison
 
-Compare two GitHub profiles side-by-side.
+Compare two GitHub developers side-by-side.
 
 Comparison metrics:
 
 * Skills
-* Repository quality
+* Repository Quality
 * Activity
-* Influence
-* Readiness scores
-* Technical strengths
+* Technical Influence
+* Readiness Scores
+* Strengths and Weaknesses
 
 ---
 
 ## AI Career Coach
 
-Interactive AI chat assistant powered by Gemini.
+Interactive AI assistant powered by Gemini.
 
 Example questions:
 
@@ -207,6 +238,7 @@ Example questions:
 * What projects should I build next?
 * Which companies should I target?
 * What are my biggest skill gaps?
+* How can I improve my profile for FAANG-level roles?
 
 ---
 
@@ -214,7 +246,7 @@ Example questions:
 
 ### Analyze
 
-Deep GitHub profile analysis and skill detection.
+Deep GitHub profile analysis and technology detection.
 
 ### Recruiter
 
@@ -234,89 +266,173 @@ Context-aware career assistant.
 
 ---
 
+## Engineering Highlights
+
+* RESTful API architecture
+* AI-powered recommendation engine
+* Dynamic GitHub repository analysis
+* Technology and skill detection system
+* Recruiter-focused candidate ranking
+* Personalized roadmap generation
+* Input validation and request sanitization
+* Rate limiting for API protection
+* MySQL connection pooling
+* Modular service-oriented backend architecture
+
+---
+
+## System Architecture
+
+GitHub REST API
+
+↓
+
+Node.js + Express Backend
+
+↓
+
+MySQL Database (Railway)
+
+↓
+
+Google Gemini AI
+
+↓
+
+Next.js Frontend
+
+↓
+
+Vercel Deployment
+
+---
+
 ## Technology Stack
 
-Frontend
+### Frontend
 
 * Next.js 15
+* React 19
 * TypeScript
 * Tailwind CSS
 * Shadcn UI
 * Recharts
+* Lucide React
 
-Backend
+### Backend
 
 * Node.js
 * Express.js
 * REST APIs
+* Express Validator
+* Express Rate Limiter
 
-Database
+### Database
 
 * MySQL
+* MySQL2
 
-AI
+### AI
 
 * Google Gemini API
 
-External APIs
+### External APIs
 
 * GitHub REST API
 
-Other Libraries
+### Deployment
 
-* Axios
-* mysql2
-* express-validator
-* express-rate-limit
+* Vercel
+* Render
+* Railway
 
 ---
 
 ## Backend API Endpoints
 
-Analyze Profile
+### Profile Management
 
 POST /api/profiles/analyze/:username
 
-Fetch All Profiles
-
 GET /api/profiles
-
-Fetch Single Profile
 
 GET /api/profiles/:username
 
-Delete Profile
-
 DELETE /api/profiles/:username
 
-Compare Developers
+### Analysis
+
+GET /api/analysis/:username/full
+
+GET /api/analysis/:username/skills
+
+GET /api/analysis/:username/repositories
+
+GET /api/analysis/:username/readiness
+
+GET /api/analysis/:username/insights
+
+GET /api/analysis/:username/roadmap
+
+GET /api/analysis/:username/activity
+
+### Comparison
 
 POST /api/compare
 
-AI Chat
+### AI Chat
 
 POST /api/chat
 
-Roadmap Generation
-
-POST /api/roadmap
-
-Resume Generation
+### Resume
 
 GET /api/resume/:username
+
+### Recruiter Dashboard
+
+GET /api/recruiter
+
+GET /api/recruiter/:username
+
+---
+
+## Local Development Setup
+
+### Clone Repository
+
+git clone https://github.com/AryanPande01/GitHub-Analyser-System-
+
+cd GitHub-Analyser-System-
+
+### Backend Setup
+
+npm install
+
+npm run dev
+
+### Frontend Setup
+
+cd frontend
+
+npm install
+
+npm run dev
 
 ---
 
 ## Deployment
 
-Frontend:
-[https://git-hub-analyser-system.vercel.app/analyze](https://git-hub-analyser-system.vercel.app/analyze)
+Frontend
 
-Backend:
-[https://github-profile-analyzer-api-ggym.onrender.com](https://github-analyser-system.onrender.com)
+Hosted on Vercel
 
-Database:
-Railway MySQL
+Backend
+
+Hosted on Render
+
+Database
+
+MySQL hosted on Railway
 
 ---
 
@@ -324,11 +440,13 @@ Railway MySQL
 
 * ATS Resume PDF Export
 * GitHub Contribution Heatmaps
-* Team Comparison
+* Team Comparison Dashboard
 * Recruiter Search Filters
 * AI Mock Interviews
 * Job Match Recommendations
 * Portfolio Scoring Engine
+* Contribution Trend Analytics
+* Multi-Candidate Hiring Pipelines
 
 ---
 
