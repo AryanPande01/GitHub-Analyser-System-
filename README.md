@@ -1,213 +1,340 @@
-# GitHub Profile Analyzer API
+# GitHub Career Analyzer
 
-A Node.js + Express backend service that fetches a GitHub user's public profile, computes rich insights, and stores them in a MySQL database.
+An AI-powered GitHub intelligence platform that analyzes developer profiles, evaluates technical readiness, generates career insights, compares candidates, and provides personalized learning roadmaps.
 
----
-
-## Tech Stack
-- **Node.js** + **Express.js** — REST API server
-- **MySQL** (via `mysql2`) — persistent storage with a connection pool
-- **GitHub REST API** — profile & repository data source
-- **express-validator** — input validation
-- **express-rate-limit** — abuse protection
-- **axios** — HTTP client
+The platform combines GitHub repository analytics, skill detection, career readiness scoring, recruiter-focused insights, and Gemini-powered AI recommendations into a single professional dashboard.
 
 ---
 
-## Project Structure
+## Live Demo
 
-```
-github-profile-analyzer/
-├── src/
-│   ├── index.js                    # App entry point
-│   ├── config/
-│   │   ├── db.js                   # MySQL pool + connection test
-│   │   └── github.js               # GitHub API client + insight computation
-│   ├── models/
-│   │   └── profile.model.js        # Table creation + DB queries
-│   ├── controllers/
-│   │   └── profile.controller.js   # Business logic for each route
-│   ├── routes/
-│   │   └── profile.routes.js       # Route definitions + validation rules
-│   └── middleware/
-│       └── validate.js             # express-validator error handler
-├── .env.example
-├── package.json
-└── README.md
-```
+Frontend:
+[Frontend Deployment URL Here]
+
+Backend API:
+https://github-profile-analyzer-api-ggym.onrender.com
+
+GitHub Repository:
+https://github.com/AryanPande01/github-profile-analyzer-api
 
 ---
 
-## Setup
+## Features
 
-### 1. Clone & Install
+### GitHub Profile Analysis
 
-```bash
-git clone <repo-url>
-cd github-profile-analyzer
-npm install
-```
+Analyze any public GitHub profile and extract:
 
-### 2. Configure Environment
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env`:
-
-```env
-PORT=3000
-NODE_ENV=development
-
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_NAME=github_analyzer
-
-# Optional but highly recommended — raises GitHub API rate limit from 60 → 5000 req/hr
-GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
-```
-
-> **Get a GitHub token**: GitHub → Settings → Developer settings → Personal access tokens → Generate new token (no special scopes needed for public data)
-
-### 3. Create MySQL Database
-
-```sql
-CREATE DATABASE github_analyzer CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
-
-The `profiles` table is created **automatically** when the server starts.
-
-### 4. Run
-
-```bash
-# Development (auto-reload)
-npm run dev
-
-# Production
-npm start
-```
+* Public repositories
+* Followers and following
+* Public gists
+* Stars, forks, and watchers
+* Account age
+* Repository activity
+* Profile metadata
 
 ---
 
-## API Reference
+### Skill Detection Engine
 
-### Base URL
-`http://localhost:3000`
+Automatically detects technologies and skills from repositories.
 
----
+Supported categories:
 
-### `GET /`
-Returns service info and available endpoints.
+Frontend
 
----
+* HTML
+* CSS
+* JavaScript
+* TypeScript
+* React
+* Next.js
+* Vue
+* Angular
 
-### `POST /api/profiles/analyze/:username`
+Backend
 
-Fetches the GitHub profile for `:username`, computes insights across all public repos, and stores/updates the result in MySQL.
+* Node.js
+* Express
+* Spring Boot
+* Django
+* Flask
+* FastAPI
 
-**Example:**
-```bash
-curl -X POST http://localhost:3000/api/profiles/analyze/torvalds
-```
+Databases
 
-**Response:**
-```json
-{
-  "success": true,
-  "message": "Profile for 'torvalds' analyzed and stored successfully.",
-  "data": {
-    "id": 1,
-    "username": "torvalds",
-    "followers": 230000,
-    "public_repos": 7,
-    "total_stars": 210000,
-    "top_languages": [{"lang": "C", "count": 4}],
-    "most_starred_repo": "linux",
-    ...
-  }
-}
-```
+* MySQL
+* PostgreSQL
+* MongoDB
+* Redis
 
----
+Cloud & DevOps
 
-### `GET /api/profiles`
+* Docker
+* Kubernetes
+* CI/CD
+* GitHub Actions
+* AWS
+* Azure
+* GCP
 
-Returns all stored profiles with pagination and sorting.
+AI / Machine Learning
 
-| Query Param | Default       | Options                                                    |
-|-------------|---------------|------------------------------------------------------------|
-| `page`      | `1`           | Any positive integer                                       |
-| `limit`     | `20`          | 1–100                                                      |
-| `sortBy`    | `analyzed_at` | `username`, `followers`, `total_stars`, `public_repos`, `analyzed_at`, `updated_at` |
-| `order`     | `DESC`        | `ASC`, `DESC`                                              |
-
-**Example:**
-```bash
-curl "http://localhost:3000/api/profiles?sortBy=total_stars&order=DESC&limit=10"
-```
+* OpenAI
+* LangChain
+* TensorFlow
+* PyTorch
+* Scikit-Learn
 
 ---
 
-### `GET /api/profiles/:username`
+## Repository Intelligence
 
-Returns the stored insights for a single username.
+For each developer profile the platform generates:
 
-```bash
-curl http://localhost:3000/api/profiles/torvalds
-```
+* Repository Quality Score
+* Activity Score
+* Popularity Score
+* Open Source Impact Score
+* Project Complexity Score
 
-Returns `404` if the profile hasn't been analyzed yet, with a helpful message pointing to the analyze endpoint.
+Repository classification:
 
----
-
-### `DELETE /api/profiles/:username`
-
-Removes a stored profile from the database.
-
-```bash
-curl -X DELETE http://localhost:3000/api/profiles/torvalds
-```
-
----
-
-## Stored Insights
-
-| Field | Description |
-|-------|-------------|
-| `public_repos` | Total public repositories |
-| `public_gists` | Total public gists |
-| `followers` / `following` | Social graph size |
-| `total_stars` | Sum of ⭐ across all repos |
-| `total_forks` | Sum of forks across all repos |
-| `total_watchers` | Sum of watchers across all repos |
-| `avg_stars_per_repo` | Influence metric |
-| `most_starred_repo` | Name of their most popular repo |
-| `most_starred_repo_stars` | Star count of most popular repo |
-| `top_languages` | Top 5 programming languages (JSON array) |
-| `recently_active_repos` | Repos with commits in the last 6 months |
-| `original_repos` | Repos they created (not forks) |
-| `forked_repos` | Repos that are forks |
-| `account_age_days` | Days since GitHub account creation |
-| `has_website` | Whether they have a blog/website linked |
-| `hireable` | Their hireable flag |
-| `bio`, `location`, `company`, `twitter_username` | Profile metadata |
+* Web Development
+* Backend Systems
+* AI / ML
+* DevOps
+* Data Science
+* Mobile Development
+* Open Source Tools
 
 ---
 
-## Error Handling
+## Career Readiness Scoring
 
-| HTTP Code | Cause |
-|-----------|-------|
-| `400` | Invalid username format |
-| `404` | GitHub user not found / profile not yet analyzed |
-| `429` | GitHub API rate limit hit (add `GITHUB_TOKEN` to fix) |
-| `500` | Internal server error |
+Generates readiness scores across multiple domains.
+
+* Frontend Readiness
+* Backend Readiness
+* Database Readiness
+* DevOps Readiness
+* System Design Readiness
+* Problem Solving Readiness
+
+Each score includes AI-generated explanations and recommendations.
 
 ---
 
-## Rate Limiting
+## AI Career Insights
 
-The API enforces **100 requests per 15 minutes** per IP by default to prevent abuse.
+Powered by Gemini AI.
+
+Generates:
+
+* Strengths
+* Weaknesses
+* Skill gaps
+* Career recommendations
+* Portfolio suggestions
+* Resume suggestions
+* Interview preparation advice
+
+---
+
+## Learning Roadmap Generator
+
+Creates personalized:
+
+* 1 Month Roadmap
+* 3 Month Roadmap
+* 6 Month Roadmap
+
+Based on:
+
+* Current skills
+* Career goals
+* Skill gaps
+* Readiness scores
+
+Supported career paths:
+
+* SDE Intern
+* Backend Developer
+* Frontend Developer
+* Full Stack Developer
+* AI Engineer
+* ML Engineer
+* DevOps Engineer
+
+---
+
+## Recruiter Dashboard
+
+Recruiter-focused analytics include:
+
+* Candidate ranking
+* Readiness scoring
+* Repository quality evaluation
+* Technical profile summaries
+* Hiring recommendations
+* Open-source influence metrics
+
+---
+
+## Developer Comparison
+
+Compare two GitHub profiles side-by-side.
+
+Comparison metrics:
+
+* Skills
+* Repository quality
+* Activity
+* Influence
+* Readiness scores
+* Technical strengths
+
+---
+
+## AI Career Coach
+
+Interactive AI chat assistant powered by Gemini.
+
+Example questions:
+
+* What are my strongest backend skills?
+* Am I ready for backend interviews?
+* What projects should I build next?
+* Which companies should I target?
+* What are my biggest skill gaps?
+
+---
+
+## Dashboard Modules
+
+### Analyze
+
+Deep GitHub profile analysis and skill detection.
+
+### Recruiter
+
+Candidate ranking and hiring insights.
+
+### Compare
+
+Side-by-side developer comparison.
+
+### Roadmap
+
+Personalized learning plans.
+
+### AI Chat
+
+Context-aware career assistant.
+
+---
+
+## Technology Stack
+
+Frontend
+
+* Next.js 15
+* TypeScript
+* Tailwind CSS
+* Shadcn UI
+* Recharts
+
+Backend
+
+* Node.js
+* Express.js
+* REST APIs
+
+Database
+
+* MySQL
+
+AI
+
+* Google Gemini API
+
+External APIs
+
+* GitHub REST API
+
+Other Libraries
+
+* Axios
+* mysql2
+* express-validator
+* express-rate-limit
+
+---
+
+## Backend API Endpoints
+
+Analyze Profile
+
+POST /api/profiles/analyze/:username
+
+Fetch All Profiles
+
+GET /api/profiles
+
+Fetch Single Profile
+
+GET /api/profiles/:username
+
+Delete Profile
+
+DELETE /api/profiles/:username
+
+Compare Developers
+
+POST /api/compare
+
+AI Chat
+
+POST /api/chat
+
+Roadmap Generation
+
+POST /api/roadmap
+
+Resume Generation
+
+GET /api/resume/:username
+
+---
+
+## Deployment
+
+Frontend:
+[Frontend Deployment URL Here]
+
+Backend:
+https://github-profile-analyzer-api-ggym.onrender.com
+
+Database:
+Railway MySQL
+
+---
+
+## Future Enhancements
+
+* ATS Resume PDF Export
+* GitHub Contribution Heatmaps
+* Team Comparison
+* Recruiter Search Filters
+* AI Mock Interviews
+* Job Match Recommendations
+* Portfolio Scoring Engine
+
+---
+
+## Author
+
+Aryan Pande
+
+GitHub:
+https://github.com/AryanPande01

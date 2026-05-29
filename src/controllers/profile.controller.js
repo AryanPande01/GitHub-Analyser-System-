@@ -5,6 +5,8 @@ const {
   getProfileByUsername,
   deleteProfile,
 } = require("../models/profile.model");
+const { runFullAnalysis } = require("../services/analysis.service");
+const { cacheDel } = require("../config/redis");
 
 /**
  * POST /api/profiles/analyze/:username
@@ -24,16 +26,25 @@ async function analyzeProfile(req, res) {
     const insights = computeInsights(profile, repos);
     const record = { username: profile.login.toLowerCase(), ...insights };
 
-    // Persist
+    // Persist base profile
     await upsertProfile(record);
-
-    // Return stored data
     const stored = await getProfileByUsername(record.username);
+
+    // Run extended career analysis (skills, repos, readiness, AI, roadmaps)
+    let analysis = null;
+    try {
+      analysis = await runFullAnalysis(record.username, stored, repos);
+    } catch (analysisErr) {
+      console.error("Extended analysis warning:", analysisErr.message);
+    }
+
+    await cacheDel(`analysis:${record.username}*`);
 
     return res.status(200).json({
       success: true,
       message: `Profile for '${username}' analyzed and stored successfully.`,
       data: stored,
+      analysis,
     });
   } catch (err) {
     if (err.response?.status === 404) {

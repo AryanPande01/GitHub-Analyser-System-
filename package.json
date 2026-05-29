@@ -1,7 +1,7 @@
 {
-  "name": "github-profile-analyzer",
-  "version": "1.0.0",
-  "description": "Backend service to analyze GitHub profiles and store insights in MySQL",
+  "name": "github-career-analyzer",
+  "version": "2.0.0",
+  "description": "AI-powered GitHub career analyzer — skills, readiness, insights, and recruiter analytics",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -15,7 +15,8 @@
     "express-rate-limit": "^7.1.5",
     "express-validator": "^7.0.1",
     "morgan": "^1.10.0",
-    "mysql2": "^3.6.5"
+    "mysql2": "^3.6.5",
+    "redis": "^4.6.12"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"

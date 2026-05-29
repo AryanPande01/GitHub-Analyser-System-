@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #09090b;
+  --bg-elevated: #111113;
+  --bg-card: #18181b;
+  --bg-hover: #27272a;
+  --border: #27272a;
+  --border-subtle: #3f3f46;
+  --text: #fafafa;
+  --text-muted: #a1a1aa;
+  --text-dim: #71717a;
+  --accent: #10b981;
+  --accent-dim: #059669;
+  --accent-glow: rgba(16, 185, 129, 0.15);
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+  --radius: 0.75rem;
+}
+
+.light {
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-hover: #f4f4f5;
+  --border: #e4e4e7;
+  --border-subtle: #d4d4d8;
+  --text: #09090b;
+  --text-muted: #52525b;
+  --text-dim: #71717a;
+  --accent-glow: rgba(16, 185, 129, 0.1);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--accent-glow);
+  color: var(--text);
+}
+
+.glass {
+  background: color-mix(in srgb, var(--bg-card) 80%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.gradient-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, var(--accent-glow), transparent),
+    var(--bg);
+}
+
+.score-ring {
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease forwards;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
