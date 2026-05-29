@@ -15,11 +15,25 @@ const pool = mysql.createPool({
 
 async function testConnection() {
   try {
+    console.log("🔍 Attempting MySQL connection...");
+    console.log("DB_HOST:", process.env.DB_HOST);
+    console.log("DB_PORT:", process.env.DB_PORT);
+    console.log("DB_USER:", process.env.DB_USER);
+    console.log("DB_NAME:", process.env.DB_NAME);
+
     const conn = await pool.getConnection();
+
     console.log("✅ MySQL connected successfully");
+
     conn.release();
   } catch (err) {
-    console.error("❌ MySQL connection failed:", err.message);
+    console.error("❌ MySQL connection failed");
+    console.error("Error code:", err.code);
+    console.error("Error number:", err.errno);
+    console.error("SQL state:", err.sqlState);
+    console.error("Error message:", err.message);
+    console.error("Full error:", err);
+
     process.exit(1);
   }
 }
