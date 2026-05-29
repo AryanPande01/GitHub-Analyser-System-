@@ -9,13 +9,13 @@ The platform combines GitHub repository analytics, skill detection, career readi
 ## Live Demo
 
 Frontend:
-[Frontend Deployment URL Here]
+[[Frontend Deployment URL Here]](https://git-hub-analyser-system.vercel.app/analyze)
 
 Backend API:
-https://github-profile-analyzer-api-ggym.onrender.com
+[https://github-profile-analyzer-api-ggym.onrender.com](https://github-analyser-system.onrender.com)
 
 GitHub Repository:
-https://github.com/AryanPande01/github-profile-analyzer-api
+[https://github.com/AryanPande01/github-profile-analyzer-api](https://github.com/AryanPande01/GitHub-Analyser-System-.git)
 
 ---
 
@@ -310,10 +310,10 @@ GET /api/resume/:username
 ## Deployment
 
 Frontend:
-[Frontend Deployment URL Here]
+[[Frontend Deployment URL Here]](https://git-hub-analyser-system.vercel.app/analyze)
 
 Backend:
-https://github-profile-analyzer-api-ggym.onrender.com
+[https://github-profile-analyzer-api-ggym.onrender.com](https://github-analyser-system.onrender.com)
 
 Database:
 Railway MySQL
